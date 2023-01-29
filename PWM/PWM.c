@@ -91,7 +91,7 @@ extern void Configurar_PWM5(void){
     PWM0->_2_GENB |= 0x80C; //ver pag 1283 para ver la configuración 10 00 00 00 11 00
                     //bit 11-10 comparador B = 0x2 = 0b10 cundo llegue al valor de comparación va a bajar a 0
                     // C si contara ahcia abajo
-    PWM0->_2_LOAD = 25000-1; //Cuentas para que sea de 50hz // cuentas = Fclk/Fpwm   (1/f) / (1/clck) 5000-1<___EXP1
+    PWM0->_2_LOAD = 25000-1; //Cuentas para que sea de 50hz // cuentas = Fclk/Fpwm   (1/f) / (1/clck))/16 5000-1<___EXP1
     PWM0->_2_CMPB = 12500-1; //Para que el ciclo de trabajo activo sea de: %
     PWM0->_2_CTL |= (1<<0); //deshabilitar este registro apra poder configurar el PWM pag 1270
     PWM0->ENABLE |=(1<<5); //HABILITA LA SALIDA DEL PWM del generador A modulo 0 y generador B modulo 0
